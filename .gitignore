@@ -1,14 +1,14 @@
-temp.py
-temp.ipynb
-Orientation/Orientation Session and Introduction to problem solving.pdf
-Orientation.PNG
-Capture.PNG
-cap 2.PNG
-collections_deque_methods.tex
-collections_deque_python.pdf
-Contest time.PNG
-Lec 1 - Complexity 101  Beating the Time Limit.pdf
 
-.*pdf
-.*csv
-.*PNG
+
+
+# Ignore PDFs, CSVs, and PNGs in ALL folders
+**/*.pdf
+**/*.csv
+**/*.png
+**/*.jpg
+**/*.jpeg
+
+# Optional: Ignore specific temp files seen in your log
+temp.py
+temp.ipynb   
+collections_deque_methods.tex
