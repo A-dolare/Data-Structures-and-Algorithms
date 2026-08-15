@@ -1,0 +1,68 @@
+
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=0.7in]{geometry}
+\usepackage{longtable}
+\usepackage[T1]{fontenc}
+
+\begin{document}
+
+\title{Python collections.deque Methods Cheat Sheet}
+\date{}
+\maketitle
+
+\small
+
+\begin{longtable}{|p{2.7cm}|p{4.6cm}|p{4.8cm}|p{2.6cm}|}
+\hline
+\textbf{Method} & \textbf{1-Line Definition} & \textbf{Example} & \textbf{Time / Space} \\
+\hline
+append(x) & Add element to the right end of deque. & d=deque([1,2]); d.append(3) $\rightarrow$ deque([1,2,3]) & O(1) / O(1) \\
+\hline
+appendleft(x) & Add element to the left end of deque. & d=deque([2,3]); d.appendleft(1) $\rightarrow$ deque([1,2,3]) & O(1) / O(1) \\
+\hline
+pop() & Remove and return the rightmost element. & deque([1,2,3]).pop() $\rightarrow$ 3 & O(1) / O(1) \\
+\hline
+popleft() & Remove and return the leftmost element. & deque([1,2,3]).popleft() $\rightarrow$ 1 & O(1) / O(1) \\
+\hline
+extend(iterable) & Add multiple elements to the right side. & d=deque([1]); d.extend([2,3]) $\rightarrow$ deque([1,2,3]) & O(k) / O(k) \\
+\hline
+extendleft(iterable) & Add multiple elements to the left side (reversed order). & d=deque([3]); d.extendleft([2,1]) $\rightarrow$ deque([1,2,3]) & O(k) / O(k) \\
+\hline
+clear() & Remove all elements from the deque. & d=deque([1,2]); d.clear() $\rightarrow$ deque([]) & O(n) / O(1) \\
+\hline
+copy() & Create a shallow copy of the deque. & deque([1,2]).copy() & O(n) / O(n) \\
+\hline
+count(x) & Count occurrences of a value. & deque([1,2,1]).count(1) $\rightarrow$ 2 & O(n) / O(1) \\
+\hline
+index(x,start,stop) & Return first position of a value. & deque([4,5,6]).index(5) $\rightarrow$ 1 & O(n) / O(1) \\
+\hline
+insert(i,x) & Insert an element at a given position. & d=deque([1,3]); d.insert(1,2) $\rightarrow$ deque([1,2,3]) & O(n) / O(1) \\
+\hline
+remove(x) & Remove first occurrence of a value. & d=deque([1,2,1]); d.remove(1) $\rightarrow$ deque([2,1]) & O(n) / O(1) \\
+\hline
+reverse() & Reverse deque in place. & d=deque([1,2,3]); d.reverse() $\rightarrow$ deque([3,2,1]) & O(n) / O(1) \\
+\hline
+rotate(n=1) & Rotate elements right by n (left if negative). & d=deque([1,2,3,4]); d.rotate(1) $\rightarrow$ deque([4,1,2,3]) & O(min(n,len)) / O(1) \\
+\hline
+maxlen & Read-only attribute showing maximum size. & deque([1,2],maxlen=5).maxlen $\rightarrow$ 5 & O(1) / O(1) \\
+\hline
+\end{longtable}
+
+\section*{Deque Special Operations}
+
+\begin{itemize}
+\item len(d) -- Number of elements. Time: O(1)
+\item x in d -- Membership test. Time: O(n)
+\item d[i] -- Index access. O(1) near ends, O(n) worst-case in middle.
+\item d[0] -- First element. O(1)
+\item d[-1] -- Last element. O(1)
+\end{itemize}
+
+\section*{Notes}
+\begin{itemize}
+\item deque stands for ``double-ended queue''.
+\item append(), appendleft(), pop(), and popleft() are the primary reasons deque is preferred over list for queue operations.
+\item Unlike lists, inserting/removing at either end is O(1).
+\end{itemize}
+
+\end{document}
